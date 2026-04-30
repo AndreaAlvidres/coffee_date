@@ -20,7 +20,9 @@
       <div class="col-md-6 text-center">
         
         <p class="display-6">Would you like it hot or iced?</p>
-        
+        <audio id="background-music" preload="auto">
+          <source src="/images/chance-of-rain-albert-behar-main-version-36831-02-47.mp3" type="audio/mpeg">
+        </audio>
         <div class="mt-4">
           <a href="/date_options/m_finance_americano.html" class="btn-image">
             <img src="/images/coffee_date_hot.png" alt="Yes" style="width: 265px;">
@@ -33,6 +35,16 @@
       </div>
     </div>
   </div>
-
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('background-music');
+      audio.play().catch(error => {
+        console.log("Autoplay blocked. Sound will play on mouse move.");
+        document.addEventListener('mouseover', () => {
+          audio.play();
+        }, { once: true });
+      });
+    });
+  </script>
 </body>
 </html>
